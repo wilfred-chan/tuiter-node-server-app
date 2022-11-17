@@ -13,7 +13,11 @@ const findTuits = (req, res) => {
   res.json(tuits);
 };
 const updateTuit = (req, res) => {};
-const deleteTuit = (req, res) => {};
+const deleteTuit = (req, res) => {
+  const tuitdIdToDelete = req.params.tid;
+  tuits = tuits.filter((t) => t._id !== parseInt(tuitdIdToDelete));
+  res.sendStatus(200);
+};
 
 export default (app) => {
   app.post("/api/tuits", createTuit);
