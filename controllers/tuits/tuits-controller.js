@@ -3,9 +3,13 @@ let tuits = posts;
 
 const createTuit = (req, res) => {
   const newTuit = req.body;
-  newTuit._id = new Date().getTime() + "";
+  newTuit._id = Math.floor(Date.now() / 1000);
   newTuit.likes = 0;
   newTuit.liked = false;
+  newTuit.username = "NASA";
+  newTuit.handle = "@nasa";
+  newTuit.image = "nasa.jpg";
+  newTuit.time = "1m";
   tuits.push(newTuit);
   res.json(newTuit);
 };
